@@ -1,0 +1,57 @@
+.my-list {
+  background-color: lightgoldenrodyellow;
+}
+
+.my-list > li {
+  background-color: bisque;
+}
+
+.my-list ol {
+  background-color: aliceblue;
+}
+
+.my-list ol li {
+  background-color: blueviolet;
+}
+
+#before + li {
+  background-color: brown;
+}
+
+h1,
+h6 {
+  color: darkblue;
+}
+
+#before + li,
+ol ol > li {
+  color: yellow;
+}
+
+button[name] {
+  background-color: burlywood;
+}
+
+button[name="green"] {
+  background-color: green;
+}
+
+button[name~="yellow"] {
+  background-color: yellow;
+}
+
+button[name|="red"] {
+  background-color: red;
+}
+
+button[name^="blu"] {
+  background-color: blue;
+}
+
+button[name$="ton!"] {
+  background-color: pink;
+}
+
+button[name*="is a"] {
+  background-color: purple;
+}
