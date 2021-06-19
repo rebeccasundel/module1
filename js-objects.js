@@ -6,7 +6,7 @@ console.log(names[0])
 // Objects
 
 // - naming in singular as they represent 1 "thing"
-// we use {}
+// - we use {} when working with objects
 
 const student = {
   // key : value
@@ -16,13 +16,16 @@ const student = {
   age: 33,
   isCareerChanger: true,
   favoriteSubjects: ['JavaScript', 'CSS']
-}
+};
 
 // each element in object is separated by comma
 // objects are represented with key : value pairs
+// we use DOT notation when getting the value of an object
 
 // 2 ways to get the values of a property of an object
 console.log(student.firstName);
+
+// we can use brackets too (but we won't do it on our class)
 // console.log(student["age"])
 
 console.log(student.isCareerChanger);
@@ -44,7 +47,7 @@ console.log(student);
 
 const house = {
   windows: 12
-}
+};
 
 house.doors = 7;
 
