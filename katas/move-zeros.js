@@ -18,6 +18,8 @@ function moveZeros(arr) {
     }
   }
   return result.concat(zeros);
+  // merging 2 arrays using the spread operator
+  // return [...result, ...zeros];
 }
 
 moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]);
