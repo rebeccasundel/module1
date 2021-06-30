@@ -71,4 +71,5 @@ veggieItems[3].classList.remove("veggie-item");
 btn.addEventListener("click", (event) => {
   console.log("fired", event);
 });
-// addEvent
+// addEventListener takes two arguments one the name of the event we are trying to listen for and the other a function to trigger when the event occurs
+// as an argument to the function that is triggered, the event is passed. That event has a property called target that points to the element that triggered the event.
