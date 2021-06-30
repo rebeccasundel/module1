@@ -1,0 +1,22 @@
+.red-box {
+  background-color: red;
+  height: 20vh;
+  width: 20vw;
+  font-size: 2rem;
+}
+
+body {
+  font-size: 20px;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .blue-box {
+    background-color: blue;
+  }
+}
+
+@media (min-width: 1000px) {
+  .blue-box {
+    background-color: green;
+  }
+}
