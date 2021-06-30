@@ -28,24 +28,47 @@ for (let i = 0; i < veggieItems.length; i++) {
 // 5: Get the subtitle in the veggies section
 // ... your code here
 // => Veggies
+const h2s = document.getElementsByTagName("h2");
+h2s[1].innerText;
 // ----------------------------------------------
 // 6: Add an ID 'fruit-title' to the first subtitle (in the Fruit section)
 // ... your code here
 // => fruit-title
+const veggiesId = document.querySelector("h2");
+veggiesId.id = "fruit-title";
 // ----------------------------------------------
 // 7: Add a class 'best-fruit' to the 1st and the 3rd fruit
 // ... your code here
 // => <li class="fruit-item best-fruit">Pear</li>
 // => <li class="fruit-item best-fruit">Plum</li>
+const firstThirdFruit = document.querySelectorAll(".fruit-item:nth-child(2n)");
+firstThirdFruit.forEach((e) => {
+  e.classList.add("best-fruit");
+});
 // ----------------------------------------------
 // 8: Remove class 'veggies' from the unordered list of veggies
 // ... your code here
 // => <ul>...</ul>
+const veggieList = document.querySelector(".veggies");
+veggieList.className = "";
 // ----------------------------------------------
 // 9: Add a class 'veggie-love' to all the veggies
 // ... your code here
 // => <li class="veggie-item veggie-love">Broccoli</li> ...
+const veggieItems = document.querySelectorAll(".veggie-item");
+veggieItems.forEach((veggie) => {
+  veggie.classList.add("veggie-love");
+});
 // ----------------------------------------------
 // 10: Remove class 'veggie-item' from 'spinach'
 // ... your code here
 // => ... <li class="veggie-love">Spinach</li>
+const veggieItems = document.querySelectorAll(".veggie-item");
+veggieItems[3].classList.remove("veggie-item");
+
+// Event example:
+
+btn.addEventListener("click", (event) => {
+  console.log("fired", event);
+});
+// addEvent
