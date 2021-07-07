@@ -1,6 +1,6 @@
 ![Ironhack Logo](https://i.imgur.com/1QgrNNw.png)
 
-# JS | Debugging, error handling and JS Hint
+# JS | Debugging, error handling and ES Lint
 
 This repository holds a small project to practice debugging and error handling.
 
