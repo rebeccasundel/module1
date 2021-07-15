@@ -16,6 +16,7 @@ const drawBackground = () => {
   context.font = "25px Arial";
 
   context.fillText(`Score: ${score}`, 800, 50);
+  context.fillText(`Lives: ${superman.lives}`, 800, 80);
 };
 
 // 2. add images to canvas
@@ -24,7 +25,9 @@ const superman = {
   x: 0,
   y: 200,
   width: 150,
-  height: 150
+  height: 150,
+  lives: 3,
+  immunity: false
 };
 
 const supermanImg = new Image();
@@ -51,6 +54,13 @@ fireballImg.src = "./images/fireball.png";
 const drawEverything = () => {
   context.drawImage(supermanImg, superman.x, superman.y, superman.width, superman.height);
   context.drawImage(fireballImg, fireball.x, fireball.y, fireball.width, fireball.height);
+
+  if (didCollide(superman, fireball)) {
+    if (superman.lives === 0) {
+      // alert("GAME OVER!");
+      gameOver();
+    }
+  }
 };
 
 const drawLoop = () => {
@@ -68,11 +78,9 @@ const drawLoop = () => {
     fireball.y = Math.random() * (canvas.height - fireball.height);
   }
 
-  if (fireball.x === 0) {
-    score++;
+  if (superman.lives > 0) {
+    requestAnimationFrame(drawLoop);
   }
-
-  requestAnimationFrame(drawLoop);
 };
 
 // player movements
@@ -101,5 +109,57 @@ document.addEventListener("keydown", (event) => {
       console.log("Are you even moving?!?!");
   }
 });
+
+const didCollide = (superman, fireball) => {
+  if (
+    superman.x + superman.width - 50 < fireball.x ||
+    superman.y > fireball.y + fireball.height ||
+    fireball.x + fireball.width < superman.x ||
+    superman.y + superman.height < fireball.y
+  ) {
+    if (fireball.x === 0) {
+      score++;
+    }
+    return false;
+  } else {
+    if (superman.immunity === false) {
+      superman.lives -= 1;
+      switchImmunity();
+    }
+    return true;
+  }
+};
+
+const switchImmunity = () => {
+  superman.immunity = true;
+  setTimeout(() => {
+    superman.immunity = false;
+  }, 1000);
+};
+
+const gameOver = () => {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawBackground();
+
+  const tiredSuperman = {
+    x: 400,
+    y: 250,
+    width: 150,
+    height: 150
+  };
+
+  const tiredSupermanImg = new Image();
+  tiredSupermanImg.src = "./images/tired-superman.png";
+
+  tiredSupermanImg.addEventListener("load", () => {
+    context.drawImage(tiredSupermanImg, tiredSuperman.x, tiredSuperman.y, tiredSuperman.width, tiredSuperman.height);
+  });
+
+  context.fillStyle = "red";
+  context.font = "70px Arial";
+
+  context.fillText("GAME OVER!", 300, 200);
+};
 
 drawLoop();
